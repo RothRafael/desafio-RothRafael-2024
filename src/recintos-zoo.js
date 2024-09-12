@@ -12,7 +12,9 @@ class RecintosZoo {
     analisaRecintos(animal, quantidade) {
         
         // Verifica se o animal ou quantidade é válido
-        if (!(animal in this.animalMap)) {
+        if (!(animal in this.animalMap) && quantidade <= 0) {
+            return { erro: "Animal e quantidade inválidos" };
+        } else if (!(animal in this.animalMap)) {
             return { erro: "Animal inválido" };
         } else if (quantidade <= 0) {
             return { erro: "Quantidade inválida" };
